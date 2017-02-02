@@ -142,28 +142,16 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
 
-	
 
-	// //Generates random letter
- //  	var random = letters[Math.floor(Math.random()* letters.length)];
- // //  	if (game.correctGuess() || game.outOfGuesses()){
-
-  	// // else {
-  	// // 
-  	// console.log(random);
-
-  	// }
   	
   	  	//Listens for key press to start game
   	  	document.onkeyup = function(event) {
      	var userInput = event.key.toUpperCase();
    
+   		//Generates random letter
      	var random = letters[Math.floor(Math.random()* letters.length)];
- //  	if (game.correctGuess() || game.outOfGuesses()){
-
-  	// else {
-  	// 
-  	console.log(random);
+ 
+  		console.log(random);
      	//Variable to check keys typed are A-Z only
 		var inp = String.fromCharCode(event.keyCode);
 
