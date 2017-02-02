@@ -25,7 +25,16 @@ window.addEventListener("DOMContentLoaded", function(){
   		guessesLeft: 10, //Stores number of guess left.
   		lostGame: true,
   		lettersGuessed:"",
-  		currentLetter: null,
+  		
+  	// 	currentLetter: function(){ 
+
+  	// 		var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
+			// // console.log(game.correctGuess());
+	
+
+			// //Generates random letter
+  	// 		var random = letters[Math.floor(Math.random()* letters.length)];
+  	// 	}, 
   		
   // 		generate: function(){
   // 			var letters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M','N','O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W','X', 'Y', 'Z'];
@@ -120,7 +129,7 @@ window.addEventListener("DOMContentLoaded", function(){
  	console.log(game.wins)
 	game.startGame();
 	// var randomLetter=game.generate();
-
+	// game.currentLetter(random);
 	// var randomLetter = game.generate();
   
   	// console.log(game.wins);
@@ -128,19 +137,19 @@ window.addEventListener("DOMContentLoaded", function(){
 	console.log(game.guessesLeft);
 	console.log(game.wins);
 
-		//Array of letters
+	//Array of letters
 	
 
 	var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
-	console.log(game.correctGuess());
+
 	
 
-	//Generates random letter
-  	var random = letters[Math.floor(Math.random()* letters.length)];
-  	if (game.correctGuess() || game.outOfGuesses()){
+	// //Generates random letter
+ //  	var random = letters[Math.floor(Math.random()* letters.length)];
+ // //  	if (game.correctGuess() || game.outOfGuesses()){
 
-  	// else {
-  	
+  	// // else {
+  	// // 
   	// console.log(random);
 
   	// }
@@ -149,7 +158,12 @@ window.addEventListener("DOMContentLoaded", function(){
   	  	document.onkeyup = function(event) {
      	var userInput = event.key.toUpperCase();
    
-     	
+     	var random = letters[Math.floor(Math.random()* letters.length)];
+ //  	if (game.correctGuess() || game.outOfGuesses()){
+
+  	// else {
+  	// 
+  	console.log(random);
      	//Variable to check keys typed are A-Z only
 		var inp = String.fromCharCode(event.keyCode);
 
@@ -184,8 +198,13 @@ window.addEventListener("DOMContentLoaded", function(){
   			  	 
 
   				//run the method to see if the user is out of guesses
-    			game.outOfGuesses(); 
+    			game.outOfGuesses();
+
+    			if (game.outOfGuesses()){
+
+    				var random = letters[Math.floor(Math.random()* letters.length)]; 
     			
+    			console.log(random); }
     			
     		}
 
@@ -195,7 +214,9 @@ window.addEventListener("DOMContentLoaded", function(){
     			
     			game.correctGuess();	
 
-    			
+    			var random = letters[Math.floor(Math.random()* letters.length)];
+
+    			console.log(random);
     		}
   		}
   		else {
