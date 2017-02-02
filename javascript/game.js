@@ -1,47 +1,26 @@
  
 window.addEventListener("DOMContentLoaded", function(){
 	
-	//Array for letters
- 	//var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K","L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
+	//This is my game object that contains the main properties and methods that are used to run.
 
-	//Variable for wins
- 	//var wins = 0;  
+
+//Array of letters that are used to be randomly generated
+	var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
+	//Generates random letter
+    
+  	var random = letters[Math.floor(Math.random()* letters.length)];
  
-	//Variable for losses
- 	//var losses = 0;  
- 
-	//Variable for guesses
- 	// var guesses = userInput; 
-
-	// Generates a random leter from the letters array
- 	//var random = letters[Math.floor(Math.random()*letters.length)];
- 	//console.log(random);
-
-  	//var rightguess = random
-
+  				console.log( "first " + random);
+  
   	var game = {
   		wins: 0,    // Stores number of wins
   		losses: 0,  // Stores number of losses
   		guessesLeft: 10, //Stores number of guess left.
-  		lostGame: true,
+  		// lostGame: true,
   		lettersGuessed:"",
   		
-  	// 	currentLetter: function(){ 
-
-  	// 		var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
-			// // console.log(game.correctGuess());
-	
-
-			// //Generates random letter
-  	// 		var random = letters[Math.floor(Math.random()* letters.length)];
-  	// 	}, 
-  		
-  // 		generate: function(){
-  // 			var letters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M','N','O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W','X', 'Y', 'Z'];
-  		
-		// 	var random = letters[Math.floor(Math.random()* letters.length)];
-		// 	console.log(random);
-		// },
+  
+		// This clears and starts the game.
   		
   		startGame: function(){
   			console.log("New Game!");
@@ -57,8 +36,6 @@ window.addEventListener("DOMContentLoaded", function(){
   			this.guessesLeft =  10; //Sets guessLeft to 10
   			var elWins = document.getElementById("guessesLeft");
   			elWins.textContent = game.guessesLeft;
-  			
-  			//this.winner = false;  //Sets winner to false
   			
   			this.lettersGuessed = " "; //Sets letters guessed to none
   			
@@ -82,6 +59,7 @@ window.addEventListener("DOMContentLoaded", function(){
   		outOfGuesses: function(){
 
   			if (this.guessesLeft === 0) {
+  				
   				this.losses=  this.losses + 1; //Adds to losses
   				var elWins = document.getElementById("losses");
  				elWins.textContent = game.losses;
@@ -92,16 +70,14 @@ window.addEventListener("DOMContentLoaded", function(){
   				this.lettersGuessed = " ";
   				var elWins = document.getElementById("lettersGuessed");
   				elWins.textContent = game.lettersGuessed;
-
-  			
+  				random = letters[Math.floor(Math.random()* letters.length)];
+  				console.log("Lose " + random);
   			}
-  			//this.guessesLeft = this.lostGame/  			// this.guessesLeft;
-  			
   		},
 
   		// This function adds 1 to wins and updates it in the HTML
 		correctGuess: function(){
-
+			
   			this.wins = this.wins  + 1;
   			var elWins = document.getElementById("wins");
   			elWins.textContent = this.wins;
@@ -110,58 +86,31 @@ window.addEventListener("DOMContentLoaded", function(){
   			var elWins = document.getElementById("guessesLeft");
   			elWins.textContent = game.guessesLeft;
   			this.random;
+  			random = letters[Math.floor(Math.random()* letters.length)];
+  			console.log("Win " + random);
   		},
-  		
-  		continueGame: function(){
-
-
-
-  		},
-
 
   	};		
 
 
-
-  				
-  				
-  	
- 	console.log(game.wins)
 	game.startGame();
-	// var randomLetter=game.generate();
-	// game.currentLetter(random);
-	// var randomLetter = game.generate();
-  
-  	// console.log(game.wins);
 	console.log(game.losses);
 	console.log(game.guessesLeft);
 	console.log(game.wins);
 
-	//Array of letters
 	
-
-	var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
-
-
-  	
   	  	//Listens for key press to start game
   	  	document.onkeyup = function(event) {
      	var userInput = event.key.toUpperCase();
    
-   		//Generates random letter
-     	var random = letters[Math.floor(Math.random()* letters.length)];
- 
-  		console.log(random);
+   		
+     	
      	//Variable to check keys typed are A-Z only
 		var inp = String.fromCharCode(event.keyCode);
 
-	
-		
 		// If statement checks if keys Alpha and then goes to next if statement
 		if (/[A-Z]/.test(inp)){
 		
-
-
 			//If the users guess does not equal the random letter chosen
 			if (userInput!== random) {
     			//console.log(userInput);
@@ -169,88 +118,40 @@ window.addEventListener("DOMContentLoaded", function(){
     			//run the method incorrect guess;
     			game.incorrectGuess();
     			
-    		//append the letter 
+    			// uses jQuery to pull the lettsGuessed id
     			var elGuessDiv = $("#lettersGuessed");
 
-    			// for(var i = 0; i < letters.length; i++){
-
+    				//creates a new div to place each letter
     				var newLetters= $("<div>" + userInput + "</div>");
   				
-  					// el.textContent = newLetters;
-
+  					//appends the letter 
   					 elGuessDiv.append(userInput);
-    			// }
-  					// 	//var newSpan =document.createElement("span"); ?????????
-  					// 	document.createElement("div")
-  				// elGuessLetter.textContent = elGuessLetter
-  			  	 
-
-  				//run the method to see if the user is out of guesses
+    			
+  				//run the method to see if the user is out of guesses and starts new game
     			game.outOfGuesses();
 
-    			if (game.outOfGuesses()){
-
-    				var random = letters[Math.floor(Math.random()* letters.length)]; 
     			
-    			console.log(random); }
     			
     		}
 
+    		//Checks to see if key pressed is equal to the random number.
     		else if (userInput === random) {
     			
     			console.log(userInput);
     			
+    			//Runs the method to update wins and start new game.
     			game.correctGuess();	
-
-    			var random = letters[Math.floor(Math.random()* letters.length)];
-
-    			console.log(random);
     		}
   		}
+  		
+  		//Checks to see if its not an alpha key that was pressed
   		else {
+      		
+      		//Alerts user to press another key
       		alert("That's not a letter!");
       	}
-
-
-
-     	//Checks if userInput mattches the random number
-    	// if (userInput!==random)  {
-    	// 	console.log(userInput);
-    	// 	game.incorrectGuess();
-
-    	// 	var elWins = document.getElementById("guessesLeft");
-  			// elWins.textContent = game.guessesLeft();
-
-    	// }
+  
  	};
-
-
-    // for(var i = 0; i < letters.length; ++i){
-        
-        // Check the input against the current letter we're looping over
-//         	if(userInput === letters[i]){
-//         	console.log("correct")
-//   			}
-// 		}
-// 	};
+  
 });
-    // if (userInput !== random ){
-
-	
-
-
-// console.log("yes")
-
-
-
-// reset wins, losses, guesses to 0 or null
-
-// look for key event
-// if letter matches key event
-	//update wins
-	//reset values
-// otherwise display key event
-	//display key event
-	//subtract from guesses
-	//keep doing this until guesses=0 or letter is guessed
-	//if letter is guessed	
+  
