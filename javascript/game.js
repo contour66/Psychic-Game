@@ -82,10 +82,12 @@ window.addEventListener("DOMContentLoaded", function(){
   			var elWins = document.getElementById("wins");
   			elWins.textContent = this.wins;
   			alert("You are psychic!")
+  			this.lettersGuessed = " ";
+  			var elWins = document.getElementById("lettersGuessed");
+  			elWins.textContent = game.lettersGuessed;
   			this.guessesLeft =  10; //Sets guessLeft to 10
   			var elWins = document.getElementById("guessesLeft");
   			elWins.textContent = game.guessesLeft;
-  			this.lettersGuessed = " ";
   			random = letters[Math.floor(Math.random()* letters.length)];
   			console.log("Win " + random);
   		},
