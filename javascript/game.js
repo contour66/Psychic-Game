@@ -85,7 +85,7 @@ window.addEventListener("DOMContentLoaded", function(){
   			this.guessesLeft =  10; //Sets guessLeft to 10
   			var elWins = document.getElementById("guessesLeft");
   			elWins.textContent = game.guessesLeft;
-  			this.random;
+  			this.lettersGuessed = " ";
   			random = letters[Math.floor(Math.random()* letters.length)];
   			console.log("Win " + random);
   		},
