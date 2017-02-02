@@ -2,44 +2,61 @@
 <html>
 <head>
 	<title>Psychic Game</title>
+	 <link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+	<script type="text/javascript" src="javascript/game.js" ></script>
+	<script src= "https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	
 </head>
 <body>
-	<h1> Psychic Hame </h1>
+	
+	<div class= "container">
+	
+		<div class="row">
+ 			<div class="col-md-2"></div>
+  			<div class="col-md-8" id="main-box" >
+				
+				<!--  id="main-box" -->
+				< <img src="assets/images/logo1.gif" class="logo"> 
 
-		<div> Guess what letter I am thinking of </div>
+				<div class="text"> Guess what letter I am thinking of! </div>
 		
-		<div>
-			 Wins:
+				<div class="text">
+					Wins:
 		
-			<span id ="wins"> 0 </span>
+					<span id ="wins"> 0 </span>
+				</div>
 		
+				<div class="text"> 
+					Losses: 
+
+					<span id ="losses">0</span>
+				</div>	
+		
+				<div class="text">
+					Guesses Left:
+			
+					<span id ="guessesLeft">0</span>
+				</div>	
+			
+				<div class="text"> 
+			 		Your guess so far:	
+			
+					<span id ="lettersGuessed"></span>
+				</div>
+
+			
+			</div>
+			<div class="col-md-2"></div>
+
 		</div>
-		
-		<div> 
-			Losses: 
 
-			<span id ="losses">0</span>
-			
-		</div>	
-		
-		<div>
-			Guesses Left:
-			
-			<span id ="guessesLeft">0</span>
-		
-		</div>	
-		 <div> Your guess so far:	
-			
-			<span id ="lettersGuessed"></span>
-		</div>
-<script type="text/javascript" src="javascript/game.js" ></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+	
 
-
+	</div>
 </body>
-<!-- <script type="text/javascript">
+<!-- <<script src= "https://code.jquery.com/jquery-3.1.1.min.js"></script>script type="text/javascript">
 	
 	 var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
   				"L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W",

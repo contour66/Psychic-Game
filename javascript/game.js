@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function(){
   		losses: 0,  // Stores number of losses
   		guessesLeft: 10, //Stores number of guess left.
   		lostGame: true,
-  		lettersGuessed:null,
+  		lettersGuessed:"",
   		currentLetter: null,
   		
   // 		generate: function(){
@@ -80,6 +80,9 @@ window.addEventListener("DOMContentLoaded", function(){
   				this.guessesLeft =  10; //Sets guessLeft to 10
   				var elWins = document.getElementById("guessesLeft");
   				elWins.textContent = game.guessesLeft;
+  				this.lettersGuessed = " ";
+  				var elWins = document.getElementById("lettersGuessed");
+  				elWins.textContent = game.lettersGuessed;
 
   			
   			}
@@ -102,7 +105,11 @@ window.addEventListener("DOMContentLoaded", function(){
   		
   		continueGame: function(){
 
-  		}
+
+
+  		},
+
+
   	};		
 
 
@@ -125,11 +132,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 
 	var letters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L","M","N","O", "P", "Q", "R", "S", "T", "U", "V", "W","X", "Y", "Z"];
+	console.log(game.correctGuess());
+	
 
 	//Generates random letter
   	var random = letters[Math.floor(Math.random()* letters.length)];
+  	if (game.correctGuess() || game.outOfGuesses()){
+
+  	// else {
   	
-  	console.log(random);
+  	// console.log(random);
+
+  	// }
   	
   	  	//Listens for key press to start game
   	  	document.onkeyup = function(event) {
@@ -144,6 +158,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		// If statement checks if keys Alpha and then goes to next if statement
 		if (/[A-Z]/.test(inp)){
 		
+
+
 			//If the users guess does not equal the random letter chosen
 			if (userInput!== random) {
     			//console.log(userInput);
@@ -151,16 +167,25 @@ window.addEventListener("DOMContentLoaded", function(){
     			//run the method incorrect guess;
     			game.incorrectGuess();
     			
-    			//append the letter 
-    			var elWins = document.getElementById("lettersGuessed");
+    		//append the letter 
+    			var elGuessDiv = $("#lettersGuessed");
+
+    			// for(var i = 0; i < letters.length; i++){
+
+    				var newLetters= $("<div>" + userInput + "</div>");
   				
-  				//var newSpan =document.createElement("span"); ?????????
-  				
-  				elWins.textContent = userInput;
+  					// el.textContent = newLetters;
+
+  					 elGuessDiv.append(userInput);
+    			// }
+  					// 	//var newSpan =document.createElement("span"); ?????????
+  					// 	document.createElement("div")
+  				// elGuessLetter.textContent = elGuessLetter
+  			  	 
 
   				//run the method to see if the user is out of guesses
     			game.outOfGuesses(); 
-
+    			
     			
     		}
 

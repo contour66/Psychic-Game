@@ -1,3 +1,46 @@
+body{
+	background-image: url("../images/spirit.jpg");
+}
+
+#main-box {
+	background-image: url("../images/inner.jpg");
+	height: 800px;
+	max-width: 800px;
+	opacity: .75;
+	/*background-color: yellow;*/
+	
+}
+
+.logo {
+	margin-left: 160px;
+	margin-top: 50px;
+	/*opacity: 1;*/
+
+}
 h1 {
-	border-bottom: solid black 5px;
+	/*background-image: url("../images/h1logo.gif");
+	font-size: 24px;
+	text-align: center;
+	margin-top: 100px;
+	background-color: white;
+	 opacity: .9;
+	 width: 500px;
+	 height: 200;*/
+}
+
+.text {
+	text-align: center;
+	margin-bottom: 100px;
+	background-color: white;
+	/*opacity: .99;*/
+	max-width: 300px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 230px;
+	margin-right: 50px;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+	font-family: 'Merienda', cursive;
+
 }
